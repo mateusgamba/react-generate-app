@@ -4,15 +4,15 @@ It is possible create a reactjs application without needing install the nodejs u
 
 For this let's divide the process in 3 steps:
 
-1. create a docker image and push to dockerhub
-2. generate react application from the our docker image
-3. run our application using dockerfile and docker-compose
+1. Create a Docker image and push to dockerhub;
+2. Generate React application from the our Docker image;
+3. Run our application using `Dockerfile` and `docker-compose`
 
-## 1st Step
+## 1st Step - Create Docker image
 
-Create the Dockerfile file and copy and paste the following code:
+Create the Dockerfile file, copy and paste the following code:
 
-`if you prefer you can user my image builed and skip to step 3`
+> if you prefer you can use my image builed and skip to step 3
 
 ```
 FROM node:10.15.1-alpine
@@ -26,39 +26,43 @@ RUN npm install -g create-react-app
 WORKDIR /app
 ```
 
-Build your imagem
+For building image execute the follow command:
 
 ```
-docker build -t {username-dockerhub}/react-generate-app .
+docker build -t {username}/react-generate-app .
 ```
 
-and push your imagem for Dockerhub, it is necessary create an account on dockerhub
+and if you prefer you can push the imagem on [Dockerhub](https://hub.docker.com/), so use the same Docker ID as username to facilitate.
 
 ```
-docker push {username-dockerhub}/react-generate-app
+docker push {username}/react-generate-app
 ```
 
-## 2nd Step
+## 2nd Step - Generate React application
 
-Now let's generate create-react-app application. This application must be created in other folder, e.g. myFirstAppDocker
+Now let's generate create-react-app application. This application must be create in another folder, e.g. myFirstAppDocker, so access myFirstAppDocker and execute:
 
 For Mac or Linux:
 
 ```
-docker run -it -v ${PWD}:/app -p 3000:3000 --rm {username-dockerhub}/react-generate-app create-react-app .
+docker run -it -v ${PWD}:/app -p 3000:3000 --rm {username}/react-generate-app create-react-app .
 ```
 
 and for Windows:
 
 ```
-docker run -it -v %cd%:/app -p 3000:3000 --rm {username-dockerhub}/react-generate-app create-react-app .
+docker run -it -v %cd%:/app -p 3000:3000 --rm {username}/react-generate-app create-react-app .
 ```
 
-`For user my docker image change username-dockerhub to mateusgamba`
+_For use a docker image ready, execute:_
 
-## 3rd step
+```
+docker run -it -v %cd%:/app -p 3000:3000 --rm mateusgamba/react-generate-app create-react-app .
+```
 
-After generation the application let's create our Dockerfile e docker-compose files to running it.
+## 3rd step - Run application
+
+After generating the application let's create our Dockerfile e docker-compose files to running it.
 
 Dockerfile
 
@@ -89,8 +93,8 @@ services:
             - /usr/app/node_modules
 ```
 
-Now just execute `docker-compose up -d`, after openning your browser and access http://localhost:8080
+Now just execute `docker-compose up -d`, after openning your browser and access [http://localhost:8080](http://localhost:8080)
 
-It is simply and easy. I hope you like and questions you can ask me.
+It is simply and easy. I hope you enjoyed.
 
 Thanks.
