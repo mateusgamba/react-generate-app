@@ -58,7 +58,7 @@ docker run -it -v %cd%:/app -p 3000:3000 --rm {username-dockerhub}/react-generat
 
 ## 3rd step
 
-Depois de gerar o aplicativo, vamos criar nossos arquivos Dockerfile e docker-compose para executar o aplicativo.
+After generation the application let's create our Dockerfile e docker-compose files to running it.
 
 Dockerfile
 
