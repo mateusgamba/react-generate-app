@@ -12,6 +12,8 @@ For this let's divide the process in 3 steps:
 
 Create the Dockerfile file and copy and paste the following code:
 
+`if you prefer you can user my image builed and skip to step 3`
+
 ```
 FROM node:10.15.1-alpine
 LABEL maintainer="youremail" \
@@ -52,9 +54,11 @@ and for Windows:
 docker run -it -v %cd%:/app -p 3000:3000 --rm {username-dockerhub}/react-generate-app create-react-app .
 ```
 
+`For user my docker image change username-dockerhub to mateusgamba`
+
 ## 3rd step
 
-After creating the application let's create our Dockerfile and docker-compose for running application.
+Depois de gerar o aplicativo, vamos criar nossos arquivos Dockerfile e docker-compose para executar o aplicativo.
 
 Dockerfile
 
@@ -84,3 +88,9 @@ services:
             - .:/usr/app/
             - /usr/app/node_modules
 ```
+
+Now just execute `docker-compose up -d`, after openning your browser and access http://localhost:8080
+
+It is simply and easy. I hope you like and questions you can ask me.
+
+Thanks.
