@@ -16,8 +16,8 @@ Create the Dockerfile file, copy and paste the following code:
 
 ```
 FROM node:10.15.1-alpine
-LABEL maintainer="youremail" \
-  author="yourname" \
+LABEL maintainer="your-email" \
+  author="your-name" \
   version="1.0" \
   description="Create a create-react-app application without installing Node.js"
 
