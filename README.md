@@ -4,7 +4,7 @@ It is possible to create a Reactjs application without needing to install the No
 
 For this let's divide the process in 3 steps:
 
-1. Create a Docker image and push to dockerhub;
+1. Create a Docker image and push to [Dockerhub](https://hub.docker.com/);
 2. Generate React application from the our Docker image;
 3. Run our application using `Dockerfile` and `docker-compose`; that is Dockerize our React application
 
@@ -12,8 +12,7 @@ For this let's divide the process in 3 steps:
 
 Create the Dockerfile file, copy and paste the following code:
 
-> if you prefer you can use my image built -
-> [skip to step 3](#for-using-a-ready-docker-image-execute)
+> if you prefer you can [use an existing Docker image ](#using-an-existing-docker-image)
 
 ```
 FROM node:10.15.1-alpine
@@ -55,7 +54,9 @@ and for Windows:
 docker run -it -v %cd%:/app -p 3000:3000 --rm {username}/react-generate-app create-react-app .
 ```
 
-#### _For using a ready Docker image, execute:_
+### Using an existing Docker image
+
+You can use a ready Docker image for creating a React.js application, just execute:
 
 ```
 docker run -it -v %cd%:/app -p 3000:3000 --rm mateusgamba/react-generate-app create-react-app .
